@@ -1,3 +1,0 @@
-begin
-	put int i  bigger (20:10);
-end
