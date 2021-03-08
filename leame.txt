@@ -1,0 +1,1 @@
+se debe crear la carpeta c:\data para que alli se guarde el archivo .obj
