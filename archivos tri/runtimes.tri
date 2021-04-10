@@ -1,3 +1,7 @@
-run 10 
-times n := 1;
+let 
+	var n: Integer
+in
+begin
+	run 10 times n := 1;
+end
 

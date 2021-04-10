@@ -165,17 +165,39 @@ public final class Checker implements Visitor {
   
   
   public Object visitRunCommand(RunCommand ast, Object obj) {
+	  TypeDenoter eType = (TypeDenoter) ast.I.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.I.position);
+	  ast.C.visit(this, null);
 	  return null;
   } 
   
   public Object visitPutCommand(PutCommand ast, Object obj) {
+	  TypeDenoter eType = (TypeDenoter) ast.V.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.V.position);
+	  eType = (TypeDenoter) ast.E1.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.E1.position);
+	  eType = (TypeDenoter) ast.E2.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.E2.position);
 	  return null;
   } 
   
   public Object visitForCommand(ForCommand ast, Object obj) {
+	  TypeDenoter eType = (TypeDenoter) ast.V.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.V.position);
+	  eType = (TypeDenoter) ast.I1.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.I1.position);
+	  eType = (TypeDenoter) ast.I2.visit(this, null);
+	  if(! eType.equals(StdEnvironment.integerType))
+		  reporter.reportError("Integer expression expected here", "", ast.I2.position);
+	  ast.C.visit(this, null);
 	  return null;
-  } 
-  
+  }
   // Expressions
 
   // Returns the TypeDenoter denoting the type of the expression. Does

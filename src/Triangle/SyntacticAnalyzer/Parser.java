@@ -357,7 +357,7 @@ public class Parser {
     	commandAST = new RunCommand(cAST, iAST, commandPos);
     }
     break;
-    case Token.PUT:{
+    case Token.CHOOSE:{
     	acceptIt();
     	Vname vAST = parseVname();
     	accept(Token.BIGGER);
